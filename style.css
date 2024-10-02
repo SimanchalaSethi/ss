@@ -9,18 +9,9 @@ html{
 }
 
 body {
-    background: #080808;
+    background: #251522;
     color: #fff;
 }
-
-/* #header {
-    width: 100%;
-    height: 100vh;
-    background-image: url(images/just.jpg);
-    background-size: cover;
-    background-position: center;
-} */
-
 .container {
     padding: 10px 10%;
 }
@@ -94,6 +85,7 @@ nav ul li a:hover::after {
 #about {
     padding: 80px 0;
     color: #ababab;
+    background-color: #1a1a1a;
 }
 
 .row {
@@ -109,6 +101,7 @@ nav ul li a:hover::after {
 .about-col-1 img {
     width: 100%;
     border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .about-col-2 {
@@ -118,8 +111,10 @@ nav ul li a:hover::after {
 .sub-title {
     font-size: 60px;
     font-weight: 600;
-    color: #fff;
-
+    color: #7a6a78;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .tab-titles {
@@ -133,6 +128,12 @@ nav ul li a:hover::after {
     font-weight: 500;
     cursor: pointer;
     position: relative;
+    color: #00ff99;
+    transition: color 0.3s;
+}
+
+.tab-links:hover {
+    color: #fff;
 }
 
 .tab-links::after {
@@ -153,10 +154,13 @@ nav ul li a:hover::after {
 .tab-contents ul li {
     list-style: none;
     margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #cccccc;
 }
 
 .tab-contents ul li span {
-    color: #b54769;
+    color: #00ff99;
     font-size: 14px;
 }
 
@@ -166,12 +170,22 @@ nav ul li a:hover::after {
 
 .tab-contents.active-tab {
     display: block;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 /* --------------------------services---------------- */
 #services {
-    padding: 30px 0;
-
+    padding: 50px 0;
+    background-color: #629dd9;
+    color: #333;
 }
 
 .services-list {
@@ -179,50 +193,78 @@ nav ul li a:hover::after {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 40px;
     margin-top: 50px;
-
 }
 
 .services-list div {
-    background: #262626;
+    background: #ffffff;
     padding: 40px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 300;
-    border-radius: 10px;
-    transition: background 0.5s, transform 0.5s;
+    border-radius: 15px;
+    transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
     margin-top: 25px;
-
+    position: relative;
+    overflow: hidden;
+    color: #333;
 }
 
 .services-list div i {
     font-size: 50px;
     margin-bottom: 30px;
-
+    color: #007bff;
+    transition: color 0.5s;
 }
 
 .services-list div h2 {
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 15px;
-
 }
 
 .services-list div a {
     text-decoration: none;
-    color: #fff;
-    font-size: 12px;
+    color: #007bff;
+    font-size: 14px;
     margin-top: 20px;
     display: inline-block;
-}
-.services-list div.service:hover {
-    background:#00ff99;
-    transform: translateY(-10px);
+    transition: color 0.5s;
 }
 
+.services-list div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 123, 255, 0.1);
+    transition: left 0.5s;
+}
+
+.services-list div.service:hover {
+    background: #007bff;
+    color: #ffffff;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.services-list div.service:hover i {
+    color: #ffffff;
+}
+
+.services-list div.service:hover a {
+    color: #ffffff;
+}
+
+.services-list div.service:hover::before {
+    left: 0;
+}
 /* ------------------------portfolio----------------- */
 #portfolio {
     padding: 50px 0;
+    background-color: #f8f9fa;
+    color: #333;
 }
-
 .work-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -231,23 +273,26 @@ nav ul li a:hover::after {
 }
 
 .work {
-    border-radius: 10px;
+    border-radius: 15px;
     position: relative;
     overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(239, 233, 233, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .work img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
     display: block;
-    transition: transform 0.5s;
+    transition: transform 0.3s;
 }
 
 .layer {
     width: 100%;
     height: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), #00ff99);
-    border-radius: 10px;
+    background: linear-gradient(rgba(234, 231, 231, 0.6), #007bff);
+    border-radius: 15px;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -259,18 +304,18 @@ nav ul li a:hover::after {
     padding: 0 40px;
     text-align: center;
     font-size: 14px;
-    transition: height 0.5s;
+    transition: height 0.3s;
 }
 
 .layer h3 {
     font-weight: 500;
     margin-bottom: 20px;
-
+    color: #fff;
 }
 
 .layer a {
     margin: 20px;
-    color: #00ff99;
+    color: #007bff;
     text-decoration: none;
     font-size: 18px;
     line-height: 60px;
@@ -279,7 +324,10 @@ nav ul li a:hover::after {
     height: 60px;
     border-radius: 50px;
     text-align: center;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
 }
 
 .work:hover img {
@@ -290,20 +338,31 @@ nav ul li a:hover::after {
     height: 100%;
 }
 
+.work:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+.layer a:hover {
+    background: #007bff;
+    color: #fff;
+}
+
 .btn {
     display: block;
     margin: 50px auto;
     width: fit-content;
-    border: 1px solid #00ff99;
+    border: 1px solid #007bff;
     padding: 14px 50px;
     border-radius: 6px;
     text-decoration: none;
-    color: #fff;
-    transition: background 0.5s;
+    color: #007bff;
+    transition: background 0.3s, color 0.3s;
 }
 
 .btn:hover {
-    background:#00ff99;
+    background: #007bff;
+    color: #fff;
 }
 
 /* ----------------------contact----------------------- */
@@ -320,9 +379,14 @@ nav ul li a:hover::after {
 }
 
 .contact-left p i {
-    color:#00ff99;
+    color: #007bff;
     margin-right: 15px;
     font-size: 25px;
+    transition: color 0.3s;
+}
+
+.contact-left p i:hover {
+    color: #0056b3;
 }
 
 .social-icons {
@@ -335,21 +399,35 @@ nav ul li a:hover::after {
     margin-right: 15px;
     color: #ababab;
     display: inline-block;
-    transition: transform 0.5s;
+    transition: transform 0.5s, color 0.3s;
 }
 
 .social-icons a:hover {
-    color:#00ff99;
+    color: #007bff;
     transform: translateY(-5px);
 }
 
 .btn.btn2 {
     display: inline-block;
-    background:#00ff99;
+    background: #007bff;
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn.btn2:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
 }
 
 .contact-right form {
     width: 100%;
+    animation: fadeInUp 1s ease-in-out;
 }
 
 form input,
@@ -363,6 +441,12 @@ form textarea {
     color: #fff;
     font-size: 18px;
     border-radius: 6px;
+    transition: background 0.3s;
+}
+
+form input:hover,
+form textarea:hover {
+    background: #333;
 }
 
 form .btn2 {
@@ -370,6 +454,17 @@ form .btn2 {
     font-size: 18px;
     margin-top: 20px;
     cursor: pointer;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* --------------------------css for small screens-------------- */
